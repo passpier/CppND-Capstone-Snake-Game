@@ -23,6 +23,10 @@ In this project, you can build your own C++ application or extend this Snake gam
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
+## Requirements
+
+MacOS with arm64 architecture
+
 ## Basic Build Instructions
 
 1. Clone this repo.
@@ -32,8 +36,47 @@ In this project, you can build your own C++ application or extend this Snake gam
 
 ## Feature
 
-1. Add additional game scoreboard
+<img src="new_snake_game.gif"/>
 
+### Feature 1 : Score Display in UI
+#### Overview
+The update introduces a new feature that displays the player's score directly in the user interface (UI) during gameplay. This addition enhances the user experience by providing immediate feedback on the player's progress and performance.
+
+#### Implementation Details
+* ***Dependency:*** The feature utilizes the `SDL2_ttf` library to implement text rendering in the UI.
+* ***Font Asset:*** To display the score, the game requires loading the font asset `arial.ttf`.
+* ***Scoring Logic:*** Every time the player's snake consumes food, 100 points are added to the player's score.
+
+### Feature 2: Random Update Snake's Food Position
+#### Overview
+In this update, I have introduced a feature that periodically updates the position of the snake's food. This addition enhances gameplay by introducing an element of unpredictability, requiring players to adapt to changing conditions and strategize accordingly.
+
+#### Implementation Details
+* ***SnakeFood Class:*** A new `SnakeFood` class has been added to handle the generation and management of snake food position.
+* ***Random Position Update:*** The position of the snake's food will be randomly updated every 5 seconds if the player fails to consume the food within that time frame.
+* ***MessageQueue Integration:*** The implementation utilizes a MessageQueue to process and communicate the updated food positions. The `SnakeFood` class adds new positions to the message queue, and the `game.cpp` receives and processes these positions accordingly.
+
+## Success Criteria
+
+### Loops, Functions, I/O
+
+1. The project demonstrates an understanding of C++ functions and control structures. (`render.cpp` : Line 109)
+2. The project reads data from a file and process the data, or the program writes data to a file. (`render.cpp` : Line 25)
+
+### Object Oriented Programming
+
+1. One or more classes are added to the project with appropriate access specifiers for class members. (`SnakeFood.h` : Line 51)
+2. Class constructors utilize member initialization lists. (`SnakeFood.cpp` : Line 32)
+3. Templates generalize functions or classes in the project. (`SnakeFood.h` : Line 51)
+
+### Memory Management
+
+1. The project makes use of references in function declarations. (`renderer.h`)
+2. The project uses destructors appropriately. (`renderer.cpp`)
+3. The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate. (`SnakeFood.cpp`)
+4. The project uses move semantics to move data instead of copying it, where possible. (`SnakeFood.cpp`)
+
+  
 
 ## CC Attribution-ShareAlike 4.0 International
 

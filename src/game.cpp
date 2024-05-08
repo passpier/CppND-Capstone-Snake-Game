@@ -27,6 +27,9 @@ Game::~Game() {
 void Game::Run(Controller const &controller, Renderer &renderer,
                std::size_t target_frame_duration) {
   
+  // Concurrency
+  // The project uses multithreading.
+
   threads.emplace_back(std::thread(&SnakeFood::cyclePlaceFood, &snakeFood));
   threads.emplace_back(std::thread(&Game::runFoodUpdate, this));
   Uint32 title_timestamp = SDL_GetTicks();

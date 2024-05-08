@@ -28,6 +28,9 @@ struct SnakeFoodPos
 // 3. A mutex or lock is used in the project.
 // 4. A condition variable is used in the project.
 
+// Object Oriented Programming :
+// Templates generalize functions or classes in the project.
+
 template <class T>
 class MessageQueue
 {
@@ -41,12 +44,7 @@ class MessageQueue
 };
 
 // Object Oriented Programming :
-// 1. One or more classes are added to the project with appropriate access specifiers for class members.
-// 2. Class constructors utilize member initialization lists.
-// 3. Classes abstract implementation details from their interfaces.
-// 4. Overloaded functions allow the same function to operate on different parameters.
-// 5. Classes follow an appropriate inheritance hierarchy with virtual and override functions.
-// 6. Templates generalize functions or classes in the project.
+// One or more classes are added to the project with appropriate access specifiers for class members.
 
 class SnakeFood
 {

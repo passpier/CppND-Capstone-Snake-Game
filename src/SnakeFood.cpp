@@ -7,7 +7,17 @@
 template <typename T>
 T MessageQueue<T>::receive()
 {
+    // Memory Management
+    // The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+
+    // Concurrency
+    // A mutex or lock is used in the project.
+
     std::unique_lock<std::mutex> uLock(_mutex);
+
+    // Concurrency
+    // A condition variable is used in the project.
+
     _condition.wait(uLock, [this] { return !_queue.empty(); });
 
     T msg = std::move(_queue.back());
@@ -25,6 +35,9 @@ void MessageQueue<T>::send(T &&msg)
     _queue.emplace_back(std::move(msg));
     _condition.notify_one();
 }
+
+// Object Oriented Programming : 
+// Class constructors utilize member initialization lists
 
 SnakeFood::SnakeFood(std::size_t grid_width, std::size_t grid_height) : 
     _snake(grid_width, grid_height),
@@ -72,8 +85,12 @@ void SnakeFood::placeFood() {
     // food.
     if (!_snake.SnakeCell(x, y)) {
         SnakeFoodPos pos {x,y};
-      _snakeFoodQueue->send(std::move(pos));
-      return;
+
+        // Memory Management
+        // The project uses move semantics to move data instead of copying it, where possible.
+
+        _snakeFoodQueue->send(std::move(pos));
+        return;
     }
   }
 }

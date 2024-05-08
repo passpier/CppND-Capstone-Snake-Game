@@ -60,14 +60,14 @@ In this update, I have introduced a feature that periodically updates the positi
 
 ### Loops, Functions, I/O
 
-1. The project demonstrates an understanding of C++ functions and control structures. (`render.cpp` : Line 109)
-2. The project reads data from a file and process the data, or the program writes data to a file. (`render.cpp` : Line 25)
+1. The project demonstrates an understanding of C++ functions and control structures. (`render.cpp`)
+2. The project reads data from a file and process the data, or the program writes data to a file. (`render.cpp`)
 
 ### Object Oriented Programming
 
-1. One or more classes are added to the project with appropriate access specifiers for class members. (`SnakeFood.h` : Line 51)
-2. Class constructors utilize member initialization lists. (`SnakeFood.cpp` : Line 32)
-3. Templates generalize functions or classes in the project. (`SnakeFood.h` : Line 51)
+1. One or more classes are added to the project with appropriate access specifiers for class members. (`SnakeFood.h`)
+2. Class constructors utilize member initialization lists. (`SnakeFood.cpp`)
+3. Templates generalize functions or classes in the project. (`SnakeFood.h`)
 
 ### Memory Management
 
@@ -76,7 +76,11 @@ In this update, I have introduced a feature that periodically updates the positi
 3. The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate. (`SnakeFood.cpp`)
 4. The project uses move semantics to move data instead of copying it, where possible. (`SnakeFood.cpp`)
 
-  
+### Concurrency
+
+1. The project uses multithreading. (`game.cpp`)
+2. A mutex or lock is used in the project. (`SnakeFood.cpp`)
+3. A condition variable is used in the project. (`SnakeFood.cpp`)
 
 ## CC Attribution-ShareAlike 4.0 International
 

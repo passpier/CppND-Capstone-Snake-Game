@@ -30,6 +30,10 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+## Feature
+
+1. Add additional game scoreboard
+
 
 ## CC Attribution-ShareAlike 4.0 International
 

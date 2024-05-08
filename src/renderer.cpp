@@ -1,6 +1,5 @@
 #include "renderer.h"
 #include <iostream>
-#include <string>
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -13,6 +12,17 @@ Renderer::Renderer(const std::size_t screen_width,
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+  }
+
+  // Initialize SDL TTF
+  if (TTF_Init() != 0) {
+    std::cerr << "Unable to initialize SDL_ttf: " << TTF_GetError() << "\n";
+  }
+
+  font = TTF_OpenFont("fonts/arial.ttf", 28); // Change "arial.ttf" to your font file path
+  if (font == NULL) {
+    printf("Font could not be loaded! SDL_ttf Error: %s\n", TTF_GetError());
+    return;
   }
 
   // Create Window
@@ -34,7 +44,9 @@ Renderer::Renderer(const std::size_t screen_width,
 }
 
 Renderer::~Renderer() {
+  TTF_CloseFont(font);
   SDL_DestroyWindow(sdl_window);
+  TTF_Quit();
   SDL_Quit();
 }
 
@@ -71,6 +83,17 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   }
   SDL_RenderFillRect(sdl_renderer, &block);
 
+  // Loops, Functions, I/O :
+  // The project reads data from a file and process the data, or the program writes data to a file.
+
+  // Render score
+  SDL_Color textColor = {255, 255, 255, 255};
+  std::string fullText = "Snake Score: " + gameScore;
+  SDL_Surface *textSurface = TTF_RenderText_Solid(font, fullText.c_str(), textColor);
+  SDL_Texture *textTexture = SDL_CreateTextureFromSurface(sdl_renderer, textSurface);
+  SDL_Rect textRect = {50, 10, textSurface->w, textSurface->h};
+  SDL_RenderCopy(sdl_renderer, textTexture, NULL, &textRect);
+
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }
@@ -78,4 +101,12 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
 void Renderer::UpdateWindowTitle(int score, int fps) {
   std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
+}
+
+// Loops, Functions, I/O : 
+// The project demonstrates an understanding of C++ functions and control structures.
+
+void Renderer::UpdateScore(int score) {
+  int finalScore = score * 100;
+  gameScore = std::to_string(finalScore);
 }

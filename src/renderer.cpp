@@ -19,6 +19,9 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "Unable to initialize SDL_ttf: " << TTF_GetError() << "\n";
   }
 
+  // Loops, Functions, I/O :
+  // The project reads data from a file and process the data, or the program writes data to a file.
+
   font = TTF_OpenFont("fonts/arial.ttf", 28); // Change "arial.ttf" to your font file path
   if (font == NULL) {
     printf("Font could not be loaded! SDL_ttf Error: %s\n", TTF_GetError());
@@ -42,6 +45,9 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
 }
+
+// Memory Management
+// The project uses destructors appropriately.
 
 Renderer::~Renderer() {
   TTF_CloseFont(font);
@@ -82,9 +88,6 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
   SDL_RenderFillRect(sdl_renderer, &block);
-
-  // Loops, Functions, I/O :
-  // The project reads data from a file and process the data, or the program writes data to a file.
 
   // Render score
   SDL_Color textColor = {255, 255, 255, 255};

@@ -17,9 +17,13 @@ class Renderer {
   void UpdateWindowTitle(int score, int fps);
   void UpdateScore(int score);
 
+  // Memory Management
+  // The project makes use of references in function declarations.
+
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
+
   TTF_Font *font;
   std::string gameScore = "0";
 

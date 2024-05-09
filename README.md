@@ -22,6 +22,10 @@ In this project, you can build your own C++ application or extend this Snake gam
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
+* SDL2_ttf >= 2.0
+  * All installation instructions can be found [here](https://github.com/libsdl-org/SDL_ttf?tab=readme-ov-file)
+  >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source. 
+  >sudo apt-get install libsdl2-ttf-dev
 
 ## Requirements
 

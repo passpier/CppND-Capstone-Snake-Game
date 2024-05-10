@@ -5,6 +5,7 @@
 #include <chrono>
 #include "SDL.h"
 #include <dispatch/dispatch.h>
+#include <algorithm>
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),

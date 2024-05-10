@@ -24,8 +24,9 @@ In this project, you can build your own C++ application or extend this Snake gam
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 * SDL2_ttf >= 2.0
   * All installation instructions can be found [here](https://github.com/libsdl-org/SDL_ttf?tab=readme-ov-file)
-  >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source. 
   >sudo apt-get install libsdl2-ttf-dev
+* Grand Central Dispatch (GCD) library
+  >sudo apt-get install libdispatch-dev
 
 ## Requirements
 
